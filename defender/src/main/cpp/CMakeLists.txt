@@ -5,9 +5,19 @@
 
 cmake_minimum_required(VERSION 3.18.1)
 
+set(can_use_assembler TRUE)
+enable_language(ASM)
+
 # Declares and names the project.
 
 project("defender")
+
+#Set flags to detect arm32 bit or arm64 bit for switching between elf structures
+if(${ANDROID_ABI} STREQUAL "armeabi-v7a" OR ${ANDROID_ABI} STREQUAL "x86")
+    add_definitions("-D_32_BIT")
+elseif(${ANDROID_ABI} STREQUAL "arm64-v8a" OR ${ANDROID_ABI} STREQUAL "x86_64")
+    add_definitions("-D_64_BIT")
+endif()
 
 # Creates and names a library, sets it as either STATIC
 # or SHARED, and provides the relative paths to its source code.
@@ -22,6 +32,8 @@ add_library( # Sets the name of the library.
 
         # Provides a relative path to your source file(s).
         defender.cpp)
+
+target_include_directories(defender PRIVATE arch/${ANDROID_ABI})
 
 # Searches for a specified prebuilt library and stores the path as a
 # variable. Because CMake includes system libraries in the search path by
@@ -41,7 +53,7 @@ find_library( # Sets the name of the path variable.
 # build script, prebuilt third-party libraries, or system libraries.
 
 target_link_libraries( # Specifies the target library.
-        defender
+        defender log android
 
         # Links the target library to the log library
         # included in the NDK.
