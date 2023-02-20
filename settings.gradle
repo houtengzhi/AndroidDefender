@@ -12,6 +12,6 @@ dependencyResolutionManagement {
         mavenCentral()
     }
 }
-rootProject.name = "DefenderDemo"
+rootProject.name = "AndroidDefender"
 include ':app'
 include ':android-defender'
