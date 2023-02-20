@@ -3,11 +3,21 @@
 #include <unistd.h>
 #include <netinet/in.h>
 #include <arpa/inet.h>
-#include <android/log.h>
+#include <cstdio>
+#include <cstdlib>
+#include <cstring>
+#include <malloc.h>
+
 #include <pthread.h>
-#include <dirent.h>
 #include <fcntl.h>
+#include <elf.h>
+#include <dirent.h>
+#include <cctype>
+
+#include <sys/prctl.h>
 #include <sys/stat.h>
+#include <asm/unistd.h>
+
 #include "syscall_arch.h"
 #include "syscalls.h"
 #include "mylibc.h"

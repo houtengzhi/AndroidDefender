@@ -1,10 +1,11 @@
-package com.moxo.defenderdemo
+package com.yechy.defenderdemo
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
 import android.widget.TextView
-import com.moxo.defender.DefenderUtil
+import com.moxo.defenderdemo.R
+import com.yechy.defender.DefenderUtil
 
 class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
