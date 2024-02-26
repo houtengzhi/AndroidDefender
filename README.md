@@ -1,2 +1,2 @@
 # AndroidDefender
-Android security library, support detecting firda hooking
+Android security library, support detecting frida hooking
